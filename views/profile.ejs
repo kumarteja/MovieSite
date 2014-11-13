@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+<head>   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- JAVASCRIPT -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.7.0.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/Movies.js"></script>
+    <script src="js/autocomplete.js"></script>
+</head>
+<body ng-app="Movies" ng-controller="MovieController as movieCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <autocomplete ng-model="result" attr-placeholder="Search for movies here" click-activation="true" data="movies" on-type="suggestMovies" on-select="selectMovie"></autocomplete>
+            </div>  
+            <div class="col-lg-4">
+                <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <img src="images/jalsa_pic.jpg" height="317" width="214">
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <h1 class="header">
+                                <span id="title">{{movieCtrl.movies[0].title}}</span>
+                                <span id="year">{{movieCtrl.movies[0].release_date}}</span>
+                            </h1>
+                        </div>
+                        <div class="row">
+                            <span id="rating">{{movieCtrl.movies[0].users_rating}}</span>
+                        </div>
+                        <div class="row">
+                            <span id="story-line">{{movieCtrl.movies[0].story_line}}</span> 
+                        </div>
+                        <div class="row">
+                            <span>Director: </span><span ng-repeat="director in movieCtrl.movies[0].directors">{{director}}, </span>
+                        </div>
+                        <div class="row">
+                            <span>Producers: </span><span ng-repeat="producer in movieCtrl.movies[0].producers">{{producer}}, </span>
+                        </div>
+                        <div class="row">
+                            <span>Stars : </span><span ng-repeat="star in movieCtrl.movies[0].stars">{{star}}, </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <form class="post-review" role="form" ng-submit="submit()">
+                        <div class="form-group ">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                <textarea class="form-control" ng-model="user_review" rows="4" cols="78" placeholder="Write your review"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary pull-right" >Post</button>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="row" ng-repeat="review in movieCtrl.reviews">
+                        <p>{{review.review}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

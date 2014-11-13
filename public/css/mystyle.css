@@ -1,0 +1,101 @@
+#title {
+	font-size: 27px;
+	font-weight: normal;
+}
+#year {
+	font-size: 21px;
+	font-weight: normal;
+}
+#rating {
+	font-size: 21px;
+	font-weight: bold;
+}
+#story-line {
+	font-size: 15px;
+	font-weight: normal;
+}
+.autocomplete{
+  width: 400px;
+  padding: 0.8em;
+  position: absolute;
+  display: block;
+}
+.autocomplete input{
+  background-image: url(../images/search_icon.png);
+  background-repeat: no-repeat;
+  background-position: 5px 5px;
+  font-size: 1.2em;
+  width: 100%;
+  padding-left:1.8em;
+  outline: none;
+  border: 0.1em solid black;
+}
+.autocomplete ul{
+  position: relative;
+  list-style-type: none;
+  width: 100%;
+  border: 1px solid black;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+}
+.autocomplete li{
+  background-image: url(../images/poster1.jpeg);
+  background-repeat: no-repeat;
+  background-position: 5px 5px;
+  background-color: #fff;
+  text-align: left;
+  height: 74px;
+  padding: 5px;
+  padding-left: 79px;
+  border: 1px solid red;
+}
+.autocomplete li.active{
+  background-color: #aaa;
+}
+
+.navbar {
+  margin: 0px;
+}
+
+.row {
+  margin: 0px;
+}
+
+.cover-pic img{
+  width: 348px;
+  height: 348px;
+}
+
+.left-panel {
+
+}
+
+.right-panel {
+
+}
+
+.basic-info {
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.post-area {
+  
+}
+
+.reviews-area {
+  margin-top: 10px;
+}
+
+.main-content {
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.write-review {
+  width: 100%;
+}
