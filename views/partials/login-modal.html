@@ -1,0 +1,42 @@
+<div class="modal-header login_modal_header">
+    <button type="button" class="close" ng-click="close()" aria-hidden="true">&times;</button>
+    <h2 class="modal-title" id="myModalLabel">Login to Your Account</h2>
+</div>
+<div class="modal-body login-modal">
+    <p>Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required</p>
+    <br/>
+    <div class="clearfix"></div>
+    <div id='social-icons-conatainer'>
+        <div class='modal-body-left'>
+            <div ng-show="error" class="alert alert-danger">{{error}}</div>
+            <form ng-submit="login()">
+                <div class="form-group">
+                    <input ng-model="user.email" type="text" id="email" placeholder="Email" value="" class="form-control login-field">
+                    <i class="fa fa-user login-field-icon"></i>
+                </div>
+                <div class="form-group">
+                    <input ng-model="user.password" type="password" id="login-pass" placeholder="Password" value="" class="form-control login-field">
+                    <i class="fa fa-lock login-field-icon"></i>
+                </div>
+                <button type="submit" class="btn btn-success modal-login-btn">Login</button>
+                <!-- <a href="#" class="login-link text-center">Lost your password?</a> -->
+            </form>
+        </div>
+        <div class='modal-body-right'>
+            <div class="modal-social-icons">
+                <a href='#' class="btn btn-default facebook"> <i class="fa fa-facebook modal-icons"></i> Sign In with Facebook </a>
+                <a href='#' class="btn btn-default twitter"> <i class="fa fa-twitter modal-icons"></i> Sign In with Twitter </a>
+                <a href='#' class="btn btn-default google"> <i class="fa fa-google-plus modal-icons"></i> Sign In with Google </a>
+                <a href='#' class="btn btn-default linkedin"> <i class="fa fa-linkedin modal-icons"></i> Sign In with Linkedin </a>
+            </div> 
+        </div>    
+        <div id='center-line'> OR </div>
+    </div>                                                                                                                
+    <div class="clearfix"></div>
+
+    <div class="form-group modal-register-btn">
+        <button class="btn btn-default"> New User Please Register</button>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="modal-footer login_modal_footer"></div>

@@ -1,0 +1,75 @@
+<div class="row content" ng-controller="MovieCtrl">
+    <div class="col-lg-3 left-panel">
+        <div class="row cover-pic">
+            <img src="/images/jalsa_pic.jpg">
+        </div>
+        <div class="row basic-info">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td><span class="heading">Directors:</span></td>
+                        <td><span ng-repeat="director in movie.directors">{{director}}, </span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="heading">Producers:</span></td>
+                        <td><span ng-repeat="producer in movie.producers">{{producer}}, </span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="heading">Stars:</span></td>
+                        <td><span ng-repeat="star in movie.stars">{{star}}, </span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-9 right-panel">
+        <div class="row main-content">
+            <div class="row title-bar">
+                <div class="col-lg-4">
+                    <span class="heading">{{movie.title}}</span>
+                </div>
+                <div class="col-lg-4">
+                    <span class="heading">{{movie.users_rating}}</span>
+                </div>
+                <div class="col-lg-4">
+                    <span class="heading">{{movie.release_data}}</span>
+                </div>
+            </div>
+            <br/>
+            <div class="row selected-comment">
+                <p> Good comedy movie music is super hit pawan kalyan background is fucking irritating trivikram dilogues are a plus to the movie ha fuck fuck fuck</p>
+            </div>
+        </div>
+        <div class="row reviews-area">
+            <div ng-show="error" class="row alert alert-danger">{{error}}</div>
+            <div class="row post-area">
+                <form class="post-review" role="form" ng-submit="submit()">
+                    <div class="form-group ">
+                        <div class="input-group write-review">
+                            <textarea class="form-control" ng-model="review_post" rows="4" cols="78" placeholder="Write your review"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right" >Post</button>
+                </form>
+            </div>
+            <div class="row comments">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td ng-show="user_review">{{user_review.review}}</td>
+                        </tr>
+                        <tr ng-repeat="review in reviews">
+                            <td>{{review.review}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <div ng-show="user_review" class="row">
+                <p>{{user_review.review}}</p>
+            </div>
+            <div class="row" ng-repeat="review in reviews">
+                <p>{{review.review}}</p>
+            </div> -->
+        </div>
+    </div>
+</div>

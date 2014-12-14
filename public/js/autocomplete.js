@@ -152,7 +152,7 @@ app.directive('autocomplete', function() {
 				}
 			});
 		},
-		templateUrl: '../searchbar' 
+		templateUrl: 'partials/search-bar.html' 
 		// '\
 		// 	<div class="autocomplete {{ attrs.class }}" id="{{ attrs.id }}">\
 		// 		<div class="input-prepend">\

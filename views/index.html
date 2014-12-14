@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+<head>   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/index.html">
+    <!-- CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- JAVASCRIPT -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.7.0.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.1.5/angular-local-storage.js"></script>
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+    <script src="js/movie.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/autocomplete.js"></script>
+</head>
+<body ng-app="MovieReview">
+    <div class="container">
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">MovieReview</a>
+            </div>
+            <form class="navbar-form navbar-left" role="search" ng-controller="SearchBarCtrl">
+                <autocomplete ng-model="result" attr-placeholder="Search for movies here" click-activation="true" data="movies" on-type="suggestMovies" on-select="selectMovie"></autocomplete> 
+            </form>
+            <div>
+                <ul class="nav navbar-nav navbar-right" ng-controller="AuthCtrl">
+                    <li ng-hide="globals.currentUser.email" ng-click="open('sm')"><a ng-href={{hash}}>Login</a></li>
+                    <li ng-show="globals.currentUser.email" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Welcome {{ globals.currentUser.email }}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li ng-click="logout()"><a ng-href={{hash}}>logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <br/>
+        <div ng-view></div>
+    </div>
+</body>
+</html>
